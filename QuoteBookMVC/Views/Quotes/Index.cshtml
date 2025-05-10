@@ -1,0 +1,35 @@
+﻿@model IEnumerable<QuoteBookMVC.Models.Quote>
+
+@{
+    ViewData["Title"] = "Quotes";
+}
+
+<h1>Quotes</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add Quote</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Text</th>
+            <th>Author</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Text</td>
+                <td>@item.Author</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
